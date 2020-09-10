@@ -2,13 +2,13 @@
 
 ## 安装
 
-````
+```
 $ git clone https://github.com/koyeo/secret
 $ cd secret
 $ ./build.sh
 $ mv secret /local/bin/
 $ secret -h
-````
+```
 
 ## 用户
 
