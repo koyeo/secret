@@ -10,7 +10,7 @@ $ mv secret /local/bin/
 $ secret -h
 ```
 
-## 用户
+## 用法
 
 1. 加密
 
