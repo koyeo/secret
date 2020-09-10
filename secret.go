@@ -96,21 +96,6 @@ func main() {
 					},
 				},
 			},
-			{
-				Name:    "key",
-				Aliases: []string{"k"},
-				Usage:   "set default key, e.g: secret key 12345678123456781234567812345678",
-				Action: func(c *cli.Context) (err error) {
-
-					data := strings.TrimSpace(c.Args().First())
-					err = checkKeyLength(data)
-					if err != nil {
-						return
-					}
-					_key = data
-					return
-				},
-			},
 		},
 	}
 
