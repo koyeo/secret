@@ -71,7 +71,7 @@ func main() {
 			{
 				Name:    "decrypt",
 				Aliases: []string{"d"},
-				Usage:   "decrypt data,    e.g: encrypt data, ex: secret decrypt -key 32lengthStr cipherString",
+				Usage:   "decrypt data,    e.g: secret decrypt -key 32lengthStr cipherString",
 				Action: func(c *cli.Context) (err error) {
 					key, err := getKey(c)
 					if err != nil {
@@ -93,6 +93,30 @@ func main() {
 					&cli.StringFlag{
 						Name:  "key",
 						Usage: "as encrypt key",
+					},
+				},
+			},
+			{
+				Name:  "hash",
+				Usage: "hash data,    e.g: secret hash -key 32lengthStr cipherString",
+				Action: func(c *cli.Context) (err error) {
+					key, err := getKey(c)
+					if err != nil {
+						return
+					}
+					data := strings.TrimSpace(c.Args().First())
+					if data == "" {
+						err = fmt.Errorf("data is empty")
+						return
+					}
+					res := hashText(data, key)
+					fmt.Println(res)
+					return
+				},
+				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:  "key",
+						Usage: "as hash key",
 					},
 				},
 			},
@@ -160,4 +184,13 @@ func decryptText(cipher, salt string) (text string, err error) {
 		return
 	}
 	return f.(func(string, string) (string, error))(cipher, salt)
+}
+
+func hashText(data, salt string) (hash string) {
+
+	f, err := getFunc("Hash")
+	if err != nil {
+		return
+	}
+	return f.(func(string, string) string)(data, salt)
 }
