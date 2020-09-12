@@ -63,8 +63,9 @@ func main() {
 				},
 				Flags: []cli.Flag{
 					&cli.StringFlag{
-						Name:  "key",
-						Usage: "as encrypt key",
+						Name:     "key",
+						Required: true,
+						Usage:    "as encrypt key",
 					},
 				},
 			},
@@ -91,8 +92,9 @@ func main() {
 				},
 				Flags: []cli.Flag{
 					&cli.StringFlag{
-						Name:  "key",
-						Usage: "as encrypt key",
+						Name:     "key",
+						Required: true,
+						Usage:    "as encrypt key",
 					},
 				},
 			},
@@ -115,8 +117,9 @@ func main() {
 				},
 				Flags: []cli.Flag{
 					&cli.StringFlag{
-						Name:  "key",
-						Usage: "as hash key",
+						Name:     "key",
+						Required: true,
+						Usage:    "as hash key",
 					},
 				},
 			},
