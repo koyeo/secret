@@ -10,6 +10,12 @@ $ mv secret /local/bin/
 $ secret -h
 ```
 
+## 环境变量
+
+```
+$ export SECRET_SO=/app/secret/secret.so
+```
+
 ## 用法
 
 1. 加密
