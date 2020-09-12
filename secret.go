@@ -113,6 +113,7 @@ func main() {
 					}
 					res := hashText(data, key)
 					fmt.Println(res)
+					fmt.Println(res[8:24])
 					return
 				},
 				Flags: []cli.Flag{
